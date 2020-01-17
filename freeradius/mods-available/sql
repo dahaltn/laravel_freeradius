@@ -172,7 +172,7 @@ sql {
 	# server = mongodb://<DERIVED USERNAME>@192.168.0.2:PORT/DATABASE?authSource=$external&ssl=true&authMechanism=MONGODB-X509
 
 	# Database table configuration for everything except Oracle
-	radius_db = "radius"
+	radius_db = "dalo_radius"
 
 	# If you are using Oracle then use this instead
 #	radius_db = "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SID=your_sid)))"
