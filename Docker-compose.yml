@@ -16,6 +16,24 @@ services:
     volumes:
     - ./laravel:/var/www/html
     # command: composer install --ignore-platform-reqs
+  freeradius:
+    # image: freeradius/freeradius-server:latest
+    build: 
+      context: ./freeradius
+      dockerfile: Dockerfile
+    container_name: radius
+    ports:
+      - "1812:1812/udp"
+      - "1813:1813/udp"
+    networks:
+      - laravel
+    depends_on:
+    - db
+    volumes:
+      - ./freeradius/mods-available/sql:/etc/freeradius/mods-available/sql
+      - ./freeradius/sites-available/default:/etc/freeradius/sites-available/default
+      # - ./freeradius/clients.conf:/etc/freeradius/clients.conf
+    # command: ln -s /etc/freeradius/mods-available/sql /etc/freeradius/mods-enabled/sql
   db:
     image: mysql:5.7
     # command: --default-authentication-plugin=mysql_native_password
@@ -29,6 +47,10 @@ services:
       MYSQL_DATABASE: laravel
     volumes:
     - ./mysql:/var/lib/mysql
+    - ./freeradius/mods-config/sql/main/mysql/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    - ./freeradius/mods-config/sql/main/mysql/setup.sql:/docker-entrypoint-initdb.d/setup.sql
+    # - ./mysql/mysql.conf.d/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+
   # adminer:
   #   image: adminer:latest
   #   ports:
