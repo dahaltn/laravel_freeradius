@@ -1,2 +1,3 @@
 # ignore mysql folder
+.DS_Store
 /mysql
