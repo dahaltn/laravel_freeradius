@@ -1,0 +1,53 @@
+version: '3.6'
+services:
+  web:
+    build:
+      context: ./laravel
+      dockerfile: Dockerfile
+    depends_on:
+    - db
+    ports:
+    - "80:80"
+    - "443:443"
+   
+    container_name: laravel
+    networks:
+    - laravel
+    volumes:
+    - ./laravel:/var/www/html
+    # command: composer install --ignore-platform-reqs
+  db:
+    image: mysql:5.7
+    # command: --default-authentication-plugin=mysql_native_password
+    ports:
+    - "3306:3306"
+    container_name: database
+    networks:
+    - laravel
+    environment:
+      MYSQL_ROOT_PASSWORD: new
+      MYSQL_DATABASE: laravel
+    volumes:
+    - ./mysql:/var/lib/mysql
+  # adminer:
+  #   image: adminer:latest
+  #   ports:
+  #   - "8080:8080"
+  #   environment:
+  #     ADMINER_PLUGINS: 'tables-filter tinymce'
+  #   networks:
+  #   - laravel
+#  traefik:
+#    image: traefik
+#    ports:
+#      - "8080:8080"
+#      - "80:80"
+
+
+
+networks:
+  laravel:
+    ipam:
+      config:
+      - subnet: 172.10.10.0/24
+
