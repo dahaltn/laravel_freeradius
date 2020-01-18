@@ -15,7 +15,7 @@ class CreateRadreplyTable extends Migration
     {
         Schema::create('radreply', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('username')->default('');
+            $table->string('username')->unique();
             $table->string('attribute')->default('');
             $table->string('op')->default('=');
             $table->string('value')->default('');

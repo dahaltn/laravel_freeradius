@@ -15,10 +15,11 @@ class CreateNasTable extends Migration
     {
         Schema::create('nas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nasname');
+            $table->string('nasname')->unique();
             $table->string('shortname')->nullable();
+            $table->string('secret');
+            $table->integer('ports')->default(0);
             $table->string('type')->default('other');
-            $table->integer('secret');
             $table->string('server')->nullable();
             $table->text('community')->nullable();
             $table->timestamps();

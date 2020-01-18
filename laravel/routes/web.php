@@ -18,4 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/dahal', 'Controller@dahal')->name('dahal');
+Route::get('/dahal', 'Controller@dahala')->name('dahal');
+Route::resource('nas','NasController');
+Route::resource('radcheck','RadcheckController');
