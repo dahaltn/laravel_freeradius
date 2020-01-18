@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="d-inline-block">{{ __('Nas last page') }}</h3>
+
+                        <h3 class="d-inline-block">{{ __('Nas list') }}</h3>
                         <a href="{{ route('nas.create') }}" class="btn btn-sm btn-primary float-right">Add NAS</a>
 
                     </div>
@@ -57,9 +58,6 @@
                         </table>
                             {!! $na->links() !!}
 
-                    </div>
-                </div>
             </div>
-        </div>
     </div>
 @endsection

@@ -65,7 +65,7 @@
 
                                 <div class="col-md-6">
                                     <input id="server" type="text" class="form-control @error('server') is-invalid @enderror"
-                                           name="server" value="{{ old('server') }}" required autocomplete="server">
+                                           name="server" value="{{ old('server') }}" autocomplete="server">
                                     @error('server')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -78,7 +78,7 @@
 
                                 <div class="col-md-6">
                                     <textarea id="community" type="text" class="form-control @error('community') is-invalid @enderror"
-                                           name="community" value="{{ old('community') }}" required autocomplete="community">
+                                           name="community" value="{{ old('community') }}" autocomplete="community">
                                     </textarea>
                                     @error('community')
                                     <span class="invalid-feedback" role="alert">

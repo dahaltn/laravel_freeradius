@@ -5,8 +5,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header"><h3 class="d-inline-block">{{ __('Users') }}</h3>
-                        <a href="{{ route('radcheck.create') }}" class="btn btn-sm btn-primary float-right">Add User</a>
+                    <div class="card-header"><h3 class="d-inline-block">{{ __('Rad check group') }}</h3>
+                        <a href="{{ route('radgroupcheck.create') }}" class="btn btn-sm btn-primary float-right">Add RadGroup</a>
                     </div>
                     <div class="card-body">
 
@@ -20,29 +20,29 @@
                             <thead>
                             <tr>
                                 <th>No</th>
-                                <th>UserName</th>
+                                <th>Group Name</th>
                                 <th>Attribute</th>
                                 <th>op</th>
                                 <th>Value</th>
                                 <th>Created date</th>
-                                <th>Action</th>
+                                <th width="280px">Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach ($radcheck as $user)
+                            @foreach ($radgroup as $group)
                                 <tr>
-                                    <td>{{ $user->id }}</td>
-                                    <td>{{ $user->username }}</td>
-                                    <td>{{ $user->attribute }}</td>
-                                    <td>{{ $user->op }}</td>
-                                    <td>{{ $user->value }}</td>
-                                    <td>{{ $user->created_at }}</td>
+                                    <td>{{ $group->id }}</td>
+                                    <td>{{ $group->groupname }}</td>
+                                    <td>{{ $group->attribute }}</td>
+                                    <td>{{ $group->op }}</td>
+                                    <td>{{ $group->value }}</td>
+                                    <td>{{ $group->created_at }}</td>
                                     <td>
-                                        <form method="POST" action="{{ route('radcheck.destroy', $user->id) }}">
+                                        <form method="POST" action="{{ route('radgroupcheck.destroy', $group->id) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <a class="btn btn-sm btn-warning" href="{{ route('radcheck.edit',$user->id) }}">Edit</a>
-                                            {{--                                            <a class="btn bnt-xs btn-danger" href="{{ route('radcheck.destroy',$user->id) }}">Delete</a>--}}
+                                            <a class="btn btn-sm btn-warning" href="{{ route('radgroupcheck.edit',$group->id) }}">Edit</a>
+                                            {{--                                            <a class="btn bnt-xs btn-danger" href="{{ route('radcheck.destroy',$group->id) }}">Delete</a>--}}
                                             <button class="btn btn-sm btn-danger" type="submit">
                                                 Delete
                                             </button>
@@ -54,7 +54,7 @@
                             @endforeach
                             </tbody>
                         </table>
-                        {!! $radcheck->links() !!}
+                        {!! $radgroup->links() !!}
 
                     </div>
                 </div>

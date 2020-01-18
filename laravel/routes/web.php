@@ -21,3 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dahal', 'Controller@dahala')->name('dahal');
 Route::resource('nas','NasController');
 Route::resource('radcheck','RadcheckController');
+Route::resource('radgroupcheck','RadGroupcheckController');
+Route::resource('radacct','RadacctController');
