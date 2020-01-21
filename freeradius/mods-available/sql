@@ -156,8 +156,8 @@ sql {
 	#
 	server = "database"
 	port = 3306
-	login = "radius"
-	password = "radpass"
+	login = "root"
+	password = "new"
 
 	# Connection info for Mongo
 	# Authentication Without SSL
@@ -172,7 +172,7 @@ sql {
 	# server = mongodb://<DERIVED USERNAME>@192.168.0.2:PORT/DATABASE?authSource=$external&ssl=true&authMechanism=MONGODB-X509
 
 	# Database table configuration for everything except Oracle
-	radius_db = "dalo_radius"
+	radius_db = "laravel"
 
 	# If you are using Oracle then use this instead
 #	radius_db = "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SID=your_sid)))"

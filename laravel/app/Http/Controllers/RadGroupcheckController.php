@@ -14,7 +14,7 @@ class RadGroupcheckController extends Controller
      */
     public function index()
     {
-        $radgroup = RadGroupcheck::paginate(2);
+        $radgroup = RadGroupcheck::orderBy('id', 'desc')->paginate(2);
         return view('radius.radgroupcheck.index', compact('radgroup'));
     }
 

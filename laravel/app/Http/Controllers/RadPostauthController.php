@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Radacct;
+use App\RadPostauth;
 use Illuminate\Http\Request;
 
-class RadacctController extends Controller
+class RadPostauthController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class RadacctController extends Controller
      */
     public function index()
     {
-        $radacct = Radacct::orderBy('radacctid', 'desc')->paginate(1);
-        return view('radius.radacct.index', compact('radacct'));
-
+        $radpostauth = RadPostauth::orderby('id', 'desc')->paginate(5);
+        return view('radius.radpostauth.index', compact('radpostauth'));
 
     }
 
@@ -44,10 +43,10 @@ class RadacctController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Radacct  $radacct
+     * @param  \App\RadPostauth  $radPostauth
      * @return \Illuminate\Http\Response
      */
-    public function show(Radacct $radacct)
+    public function show(RadPostauth $radPostauth)
     {
         //
     }
@@ -55,10 +54,10 @@ class RadacctController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Radacct  $radacct
+     * @param  \App\RadPostauth  $radPostauth
      * @return \Illuminate\Http\Response
      */
-    public function edit(Radacct $radacct)
+    public function edit(RadPostauth $radPostauth)
     {
         //
     }
@@ -67,10 +66,10 @@ class RadacctController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Radacct  $radacct
+     * @param  \App\RadPostauth  $radPostauth
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Radacct $radacct)
+    public function update(Request $request, RadPostauth $radPostauth)
     {
         //
     }
@@ -78,10 +77,10 @@ class RadacctController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Radacct  $radacct
+     * @param  \App\RadPostauth  $radPostauth
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Radacct $radacct)
+    public function destroy(RadPostauth $radPostauth)
     {
         //
     }

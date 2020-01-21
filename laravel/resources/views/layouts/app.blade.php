@@ -76,7 +76,7 @@
         </div>
     </nav>
 
-    <main class="container">
+    <main class="container-fluid">
         <div class="row">
         <div class="col-md-3 py-4">
         <div class="card">
@@ -91,21 +91,17 @@
 
                         <ul class="list-group mb-3">
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
-
-                                    <h6 class="my-0"><a href="{{ route('nas.index') }}">Nas</a></h6>
-                                    {{--<small class="text-muted">Add/Edit Nas</small>--}}
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between lh-condensed">
                                 <div>
                                     <h6 class="my-0"><a href="{{ route('radcheck.index') }}">Users</a></h6>
                                 </div>
-
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <h6 class="my-0"><a href="{{ route('nas.index') }}">Nas</a></h6>
                             </li>
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
                                 <div>
                                     <h6 class="my-0"><a href="{{ route('radgroupcheck.index') }}">User Group</a></h6>
                                 </div>
-
                             </li>
                             <li class="list-group-item d-flex justify-content-between bg-light">
                                 <div>
@@ -114,7 +110,7 @@
                             </li>
                             <li class="list-group-item d-flex justify-content-between bg-light">
                                 <div>
-                                    <h6 class="my-0"> code</h6>
+                                    <h6 class="my-0"> <strong><a href="{{ route('radpostauth.index') }}">Connections History</a></strong></h6>
                                 </div>
                             </li>
                         </ul>
@@ -122,7 +118,7 @@
         </div>
         </div>
 
-        <div class="col-sm-8">
+        <div class="col-sm-9">
                         <div class="py-4">
 
                             @yield('content')

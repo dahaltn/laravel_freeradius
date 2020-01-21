@@ -15,7 +15,7 @@ class NasController extends Controller
      */
     public function index()
     {
-        $na = Nas::paginate(5);
+        $na = Nas::orderBy('id', 'desc')->paginate(5);
         return view('radius.nas.index',compact('na'));
     }
 

@@ -17,6 +17,7 @@ class CreateRadpostauthTable extends Migration
             $table->bigIncrements('id');
             $table->string('username')->default('');
             $table->string('pass')->default('');
+            $table->string('reply')->default('');
             $table->timestamp('authdate');
             $table->timestamps();
         });

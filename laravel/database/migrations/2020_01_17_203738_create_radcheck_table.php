@@ -16,8 +16,8 @@ class CreateRadcheckTable extends Migration
         Schema::create('radcheck', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('username')->default('');
-            $table->string('attribute')->default('');
-            $table->string('op')->default('==');
+            $table->string('attribute')->default('Cleartext-Password');
+            $table->string('op')->default(':=');
             $table->string('value')->default('');
             $table->timestamps();
         });

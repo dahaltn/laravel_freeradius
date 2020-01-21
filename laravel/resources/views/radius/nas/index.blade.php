@@ -18,7 +18,7 @@
                                 <p>{{ $message }}</p>
                             </div>
                         @endif
-                        <table class="table">
+                        <table class="table table-responsive-sm">
                             <thead>
                             <tr>
                                 <th>No</th>
@@ -28,7 +28,7 @@
                                 <th>Secret</th>
                                 <th>Ports</th>
                                 <th>Community</th>
-                                <th width="280px">Action</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>

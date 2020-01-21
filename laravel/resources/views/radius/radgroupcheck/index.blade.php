@@ -16,7 +16,7 @@
                             </div>
                         @endif
 
-                        <table class="table">
+                        <table class="table table-responsive-sm">
                             <thead>
                             <tr>
                                 <th>No</th>
@@ -25,7 +25,7 @@
                                 <th>op</th>
                                 <th>Value</th>
                                 <th>Created date</th>
-                                <th width="280px">Action</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>

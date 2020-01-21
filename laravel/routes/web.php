@@ -23,3 +23,4 @@ Route::resource('nas','NasController');
 Route::resource('radcheck','RadcheckController');
 Route::resource('radgroupcheck','RadGroupcheckController');
 Route::resource('radacct','RadacctController');
+Route::resource('radpostauth','RadPostauthController');

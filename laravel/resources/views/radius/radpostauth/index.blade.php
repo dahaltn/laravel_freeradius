@@ -5,6 +5,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
+                    <div class="card-header"><h3 class="d-inline-block">{{ __('Last Activities') }}</h3>
+                    </div>
                     <div class="card-body">
 
                         @if ($message = Session::get('success'))
@@ -16,33 +18,31 @@
                         <table class="table table-responsive-sm">
                             <thead>
                             <tr>
-                                <th>Rad Acct ID</th>
-                                <th>Session ID</th>
+                                <th>Id</th>
                                 <th>UserName</th>
-                                <th>Group Name</th>
-                                <th>Realm</th>
-                                <th>Nas IP addr</th>
-                                <th>Start Time</th>
+                                <th>Pass</th>
+                                <th>reply</th>
+                                <th>Auth Date</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach ($radacct as $acct)
+                            @foreach ($radpostauth as $postauth)
                                 <tr>
-                                    <td>{{ $acct->radacctid }}</td>
-                                    <td>{{ $acct->acctsessionid }}</td>
-                                    <td>{{ $acct->username }}</td>
-                                    <td>{{ $acct->realm }}</td>
-                                    <td>{{ $acct->nasipaddress }}</td>
-                                    <td>{{ $acct->acctuptime }}</td>
+                                    <td>{{ $postauth->id }}</td>
+                                    <td>{{ $postauth->username }}</td>
+                                    <td>{{ $postauth->pass }}</td>
+                                    <td>{{ $postauth->reply }}</td>
+                                    <td>{{ $postauth->authdate }}</td>
                                     <td>
-                                        <a class="btn btn-sm btn-primary" href="{{ route('radacct.show.show',$acct->id) }}">Show</a>
+                                        <a class="btn btn-sm btn-primary" href="{{ route('radpostauth.show',$postauth->id) }}">Show</a>
+
 
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
-                        {!! $radacct->links() !!}
+                        {!! $radpostauth->links() !!}
 
                     </div>
                 </div>
