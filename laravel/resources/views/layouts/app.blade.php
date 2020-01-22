@@ -92,23 +92,28 @@
                         <ul class="list-group mb-3">
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
                                 <div>
-                                    <h6 class="my-0"><a href="{{ route('radcheck.index') }}">Users</a></h6>
+                                    <h6 class="my-0"><strong><a href="{{ route('radcheck.index') }}">Users</a></strong></h6>
                                 </div>
                             </li>
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                <h6 class="my-0"><a href="{{ route('nas.index') }}">Nas</a></h6>
+                                <h6 class="my-0"><strong><a href="{{ route('nas.index') }}">Nas</a></strong></h6>
                             </li>
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
                                 <div>
-                                    <h6 class="my-0"><a href="{{ route('radgroupcheck.index') }}">User Group</a></h6>
+                                    <h6 class="my-0"><strong><a href="{{ route('radgroupcheck.index') }}">User Group Check</a></strong></h6>
                                 </div>
                             </li>
-                            <li class="list-group-item d-flex justify-content-between bg-light">
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
                                 <div>
-                                    <h6 class="my-0"><a href="{{ route('radacct.index') }}">Report</a></h6>
+                                    <h6 class="my-0"><strong><a href="{{ route('radgroupreply.index') }}">User Group Reply</a></strong></h6>
                                 </div>
                             </li>
-                            <li class="list-group-item d-flex justify-content-between bg-light">
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0"><strong><a href="{{ route('radacct.index') }}">Report</a></strong></h6>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
                                 <div>
                                     <h6 class="my-0"> <strong><a href="{{ route('radpostauth.index') }}">Connections History</a></strong></h6>
                                 </div>

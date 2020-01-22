@@ -66,9 +66,9 @@ class RadGroupcheckController extends Controller
      * @param  \App\RadGroupcheck  $radGroupcheck
      * @return \Illuminate\Http\Response
      */
-    public function edit(RadGroupcheck $radGroupcheck)
+    public function edit(RadGroupcheck $radgroupcheck)
     {
-        //
+       return view('radius.radgroupcheck.edit', compact('radgroupcheck'));
     }
 
     /**
@@ -78,9 +78,18 @@ class RadGroupcheckController extends Controller
      * @param  \App\RadGroupcheck  $radGroupcheck
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RadGroupcheck $radGroupcheck)
+    public function update(Request $request, RadGroupcheck $radgroupcheck)
     {
-        //
+        $request->validate([
+            'groupname' => 'required|min:4|max:35',
+            'attribute' => 'required',
+            'op' => 'required',
+            'value' => 'required|min:2',
+        ]);
+
+        $radgroupcheck->update($request->all());
+        return redirect()->route('radgroupcheck.index')
+            ->with('success','Group updated successfully');
     }
 
     /**

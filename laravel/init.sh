@@ -1,4 +1,7 @@
 #!/bin/bash
 
-/usr/sbin/apachectl -DFOREGROUND start
+# Start the freeradius service
+/etc/init.d/freeradius start
+
+/usr/sbin/apachectl -DFOREGROUND
 
