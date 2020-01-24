@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Radacct;
+use App\RaduserGroup;
 use Illuminate\Http\Request;
 
-class RadacctController extends Controller
+class RaduserGroupController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,7 @@ class RadacctController extends Controller
      */
     public function index()
     {
-        $radacct = Radacct::orderBy('radacctid', 'desc')->paginate(10);
-        return view('radius.radacct.index', compact('radacct'));
-
-
+        //
     }
 
     /**
@@ -44,10 +41,10 @@ class RadacctController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Radacct  $radacct
+     * @param  \App\RaduserGroup  $raduserGroup
      * @return \Illuminate\Http\Response
      */
-    public function show(Radacct $radacct)
+    public function show(RaduserGroup $raduserGroup)
     {
         //
     }
@@ -55,10 +52,10 @@ class RadacctController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Radacct  $radacct
+     * @param  \App\RaduserGroup  $raduserGroup
      * @return \Illuminate\Http\Response
      */
-    public function edit(Radacct $radacct)
+    public function edit(RaduserGroup $raduserGroup)
     {
         //
     }
@@ -67,10 +64,10 @@ class RadacctController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Radacct  $radacct
+     * @param  \App\RaduserGroup  $raduserGroup
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Radacct $radacct)
+    public function update(Request $request, RaduserGroup $raduserGroup)
     {
         //
     }
@@ -78,10 +75,10 @@ class RadacctController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Radacct  $radacct
+     * @param  \App\RaduserGroup  $raduserGroup
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Radacct $radacct)
+    public function destroy(RaduserGroup $raduserGroup)
     {
         //
     }

@@ -16,7 +16,7 @@ class CreateRadacctTable extends Migration
         Schema::create('radacct', function (Blueprint $table) {
             $table->bigIncrements('radacctid');
             $table->string('acctsessionid')->default('');
-            $table->string('acctuniqueid')->default('');
+            $table->string('acctuniqueid')->unique()->nullable();
             $table->string('username')->default('');
             $table->string('realm')->default('');
             $table->string('nasipaddress')->default('');
@@ -37,7 +37,11 @@ class CreateRadacctTable extends Migration
             $table->string('acctterminatecause')->default('');
             $table->string('servicetype')->nullable();
             $table->string('framedprotocol')->nullable();
-            $table->string('framedipaddress')->default('');
+            $table->string('framedipaddress')->nullable();
+            $table->string('framedipv6address')->nullable();
+            $table->string('framedipv6prefix')->nullable();
+            $table->string('framedinterfaceid')->default('');
+            $table->string('delegatedipv6prefix')->default('');
             $table->timestamps();
         });
     }

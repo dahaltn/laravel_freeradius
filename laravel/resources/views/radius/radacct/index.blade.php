@@ -35,7 +35,7 @@
                                     <td>{{ $acct->nasipaddress }}</td>
                                     <td>{{ $acct->acctuptime }}</td>
                                     <td>
-                                        <a class="btn btn-sm btn-primary" href="{{ route('radacct.show.show',$acct->id) }}">Show</a>
+                                        {{--<a class="btn btn-sm btn-primary" href="{{ route('radacct.show',$acct->id) }}">Show</a>--}}
 
                                     </td>
                                 </tr>

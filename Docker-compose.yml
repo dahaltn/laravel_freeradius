@@ -14,11 +14,12 @@ services:
    
     container_name: laravel
     networks:
-    - laravel
+    - lara_radius_network
     volumes:
     - ./laravel:/var/www/html
     - ./freeradius/3.0/mods-available/sql:/etc/freeradius/3.0/mods-available/sql
     - ./freeradius/3.0/sites-available/default:/etc/freeradius/3.0/sites-available/default
+    - ./freeradius/3.0/mods-config/sql/main/mysql/queries.conf:/etc/freeradius/3.0/mods-config/sql/main/mysql/queries.conf
     # command: composer install --ignore-platform-reqs
   # freeradius:
   #   # image: freeradius/freeradius-server:latest
@@ -30,7 +31,7 @@ services:
   #     - "1812:1812/udp"
   #     - "1813:1813/udp"
   #   networks:
-  #     - laravel
+  #     - lara_radius_network
   #   depends_on:
   #   - db
   #   volumes:
@@ -43,7 +44,7 @@ services:
     - "3306:3306"
     container_name: database
     networks:
-    - laravel
+    - lara_radius_network
     environment:
       MYSQL_ROOT_PASSWORD: new
       MYSQL_DATABASE: laravel
@@ -61,7 +62,7 @@ services:
   #   environment:
   #     ADMINER_PLUGINS: 'tables-filter tinymce'
   #   networks:
-  #   - laravel
+  #   - lara_radius_network
 #  traefik:
 #    image: traefik
 #    ports:
@@ -71,8 +72,6 @@ services:
 
 
 networks:
-  laravel:
-    ipam:
-      config:
-      - subnet: 172.10.10.0/24
+  lara_radius_network:
+    external: true
 

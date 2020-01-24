@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Radcheck;
+use App\RadgroupReply;
+use App\RaduserGroup;
 use App\User;
+use function foo\func;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -18,8 +21,9 @@ class RadcheckController extends Controller
      */
     public function index()
     {
-        $radcheck = Radcheck::orderBy('id', 'desc')->paginate(5);
-        return view('radius.radcheck.index', compact('radcheck'));
+        $radcheck = Radcheck::orderBy('id', 'desc')->paginate(20);
+//        $radprofile = $radcheck->profile;
+        return view('radius.radcheck.index', compact(['radcheck']));
     }
 
     /**
@@ -30,7 +34,8 @@ class RadcheckController extends Controller
     public function create(Radcheck $radcheck)
     {
         $title = $radcheck->user_title();
-        return view('radius.radcheck.create', compact('title'));
+        $groups = RadgroupReply::all();
+        return view('radius.radcheck.create', compact(['title', 'groups']));
     }
 
     /**
@@ -88,7 +93,8 @@ class RadcheckController extends Controller
     public function edit(Radcheck $radcheck)
     {
         $title = $radcheck->user_title();
-        return view('radius.radcheck.edit', compact(['radcheck', 'title']));
+        $groups = RadgroupReply::all();
+        return view('radius.radcheck.edit', compact(['radcheck', 'title', 'groups']));
 
     }
 
@@ -99,7 +105,7 @@ class RadcheckController extends Controller
      * @param  \App\Radcheck $radcheck
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Radcheck $radcheck)
+    public function update(Request $request, Radcheck $radcheck, RaduserGroup $redusergroup)
     {
 
 //        TODO Unique username validation on update
@@ -117,6 +123,14 @@ class RadcheckController extends Controller
             'district' => 'nullable|max:100',
             'notes' => 'nullable|max:500',
         ]);
+
+       $a = RaduserGroup::firstOrNew([
+           'username' => 'dahaltn',
+           'groupname' => '5Mb_group',
+           'priority' => 0
+       ]);
+       $a->username = 'dahaltn';
+       $a->groupname = '10';
 
 
         $radcheck->update($data);

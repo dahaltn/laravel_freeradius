@@ -25,3 +25,4 @@ Route::resource('radgroupcheck','RadGroupcheckController');
 Route::resource('radacct','RadacctController');
 Route::resource('radpostauth','RadPostauthController');
 Route::resource('radgroupreply','RadgroupReplyController');
+Route::get('/settings','Controller@settings')->name('settings');

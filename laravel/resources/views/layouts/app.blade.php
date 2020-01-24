@@ -118,6 +118,11 @@
                                     <h6 class="my-0"> <strong><a href="{{ route('radpostauth.index') }}">Connections History</a></strong></h6>
                                 </div>
                             </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0"> <strong><a href="{{ route('settings') }}">Settings and configure</a></strong></h6>
+                                </div>
+                            </li>
                         </ul>
             </div>
         </div>

@@ -17,4 +17,7 @@ class Controller extends BaseController
     public function dahal(){
         return view('dahal');
     }
+    public function settings(){
+        return view('settings');
+    }
 }

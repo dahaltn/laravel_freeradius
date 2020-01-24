@@ -47,6 +47,49 @@
                                                value="{{ $radcheck->value }}" required autocomplete="value" autofocus>
                                     </div>
                                 </div>
+
+
+                                <div class="form-group row">
+                                    <label for="group"
+                                           class="col-md-4 col-form-label text-md-right"><strong>{{ __('Group') }}
+                                            :</strong>
+                                    </label>
+                                    <div class="col-md-6">
+                                        @if($groups)
+                                            <select name="group" id="group">
+                                                @foreach($groups as $group )
+                                                    <option value="{{ $group->id }}"
+                                                            @if(old('group') == $group->id) selected="selected"
+                                                        @endif
+                                                    >{{$group->groupname}}</option>
+                                                @endforeach
+                                            </select>
+                                        @endif
+                                    </div>
+
+                                    {{--<div class="col-md-6 offset-4">--}}
+                                    {{--<a href="{{ route('radgroupreply.create') }}" target="_blank"--}}
+                                    {{--class="btn btn-sm btn-primary"> Create New Group</a>--}}
+                                    {{--</div>--}}
+                                </div>
+                                <div class="form-group row">
+                                    <label for="group"
+                                           class="col-md-4 col-form-label text-md-right"><strong>{{ __('Enable/Disable user') }}
+                                            :</strong>
+                                    </label>
+
+                                    <div class="col-md-6">
+                                        <select name="status" id="status">
+                                            <option value="enable"
+                                                    @if(old('status')=='enable') selected="selected" @endif >
+                                                Enable
+                                            </option>
+                                            <option value="disable"
+                                                    @if(old('status')=='disable') selected="selected" @endif>Disable
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="border mb-5">

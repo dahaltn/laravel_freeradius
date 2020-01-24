@@ -13,6 +13,10 @@ class Radcheck extends Model
     {
         return $this->hasOne(RadcheckProfile::class);
     }
+//    public function radusergroup()
+//    {
+//        return $this->hasOne(\CreateRadusergroupTable::class);
+//    }
 
     public function user_title()
     {

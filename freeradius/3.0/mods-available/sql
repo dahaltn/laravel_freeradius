@@ -156,8 +156,8 @@ sql {
 	#
 	server = "database"
 	port = 3306
-	login = "radius"
-	password = "radpass"
+	login = "root"
+	password = "new"
 
 	# Connection info for Mongo
 	# Authentication Without SSL

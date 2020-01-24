@@ -14,7 +14,7 @@ class RadgroupReplyController extends Controller
      */
     public function index()
     {
-       $radgroupreply = RadgroupReply::orderBy('id', 'DESC')->paginate(2);
+       $radgroupreply = RadgroupReply::orderBy('id', 'DESC')->paginate(20);
        return view('radius.radgroupreply.index', compact('radgroupreply'));
     }
 

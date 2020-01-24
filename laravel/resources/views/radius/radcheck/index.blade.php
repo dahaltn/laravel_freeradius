@@ -41,7 +41,7 @@
                                     <td>{{ $user->username }}</td>
                                     <td>{{ $user->value }}</td>
                                     <td>
-                                        @if($user->profile->first_name && $user->profile->last_name)
+                                        @if(isset($user->profile->first_name) && isset($user->profile->last_name))
                                             {{ $user->profile->first_name }} {{$user->profile->last_name}}
                                         @endif
                                     </td>

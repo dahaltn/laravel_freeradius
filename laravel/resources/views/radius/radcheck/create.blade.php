@@ -43,13 +43,28 @@
                                                value="{{ old('value') }}" required autocomplete="value" autofocus>
                                     </div>
                                 </div>
-                                <div class="form-group row mb-4">
+
+                                <div class="form-group row">
+                                    <label for="group"
+                                           class="col-md-4 col-form-label text-md-right"><strong>{{ __('Group') }}
+                                            :</strong>
+                                    </label>
                                     <div class="col-md-6">
-                                        <button type="submit" class="btn btn-sm btn-outline-dark float-right">
-                                            {{ __('Create User') }}
-                                        </button>
+                                        @if($groups)
+                                            <select name="group" id="group">
+                                                @foreach($groups as $group )
+                                                    <option value="{{ $group->id }}"
+                                                            @if(old('group') == $group->id) selected="selected"
+                                                        @endif
+                                                    >{{$group->groupname}}</option>
+                                                @endforeach
+                                            </select>
+                                        @endif
                                     </div>
+
+
                                 </div>
+
                             </div>
 
                             <div class="border mb-5">
