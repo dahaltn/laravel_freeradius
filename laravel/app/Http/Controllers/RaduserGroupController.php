@@ -14,7 +14,6 @@ class RaduserGroupController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**

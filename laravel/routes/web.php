@@ -18,11 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/dahal', 'Controller@dahala')->name('dahal');
 Route::resource('nas','NasController');
-Route::resource('radcheck','RadcheckController');
-Route::resource('radgroupcheck','RadGroupcheckController');
 Route::resource('radacct','RadacctController');
 Route::resource('radpostauth','RadPostauthController');
-Route::resource('radgroupreply','RadgroupReplyController');
-Route::get('/settings','Controller@settings')->name('settings');
+Route::get('settings','Controller@settings')->name('settings');
+Route::resource('customers','RadiusCustomerController');
+Route::resource('groups','GroupNameController');
+Route::resource('group-setting','RadgroupCheckReplyController');
+//Route::resource('groups-settings','RaduserGroupController');

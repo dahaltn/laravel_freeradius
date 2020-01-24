@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Nas;
-use App\Radcheck;
+use App\Radcheckreply;
 use Illuminate\Http\Request;
 
 class NasController extends Controller

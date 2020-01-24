@@ -92,7 +92,7 @@
                         <ul class="list-group mb-3">
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
                                 <div>
-                                    <h6 class="my-0"><strong><a href="{{ route('radcheck.index') }}">Users</a></strong></h6>
+                                    <h6 class="my-0"><strong><a href="{{ route('customers.index') }}">Customers</a></strong></h6>
                                 </div>
                             </li>
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
@@ -100,12 +100,12 @@
                             </li>
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
                                 <div>
-                                    <h6 class="my-0"><strong><a href="{{ route('radgroupcheck.index') }}">User Group Check</a></strong></h6>
+                                    {{--<h6 class="my-0"><strong><a href="{{ route('groups.index') }}">Group Name</a></strong></h6>--}}
                                 </div>
                             </li>
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
                                 <div>
-                                    <h6 class="my-0"><strong><a href="{{ route('radgroupreply.index') }}">User Group Reply</a></strong></h6>
+                                    <h6 class="my-0"><strong><a href="{{ route('group-setting.index') }}">Group settings</a></strong></h6>
                                 </div>
                             </li>
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
