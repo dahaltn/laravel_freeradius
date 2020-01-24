@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRadcheckTable extends Migration
+class CreateGroupTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateRadcheckTable extends Migration
      */
     public function up()
     {
-        Schema::create('radcheck', function (Blueprint $table) {
+        Schema::create('groups', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('username')->default('');
-            $table->string('attribute')->default('Cleartext-Password');
-            $table->string('op')->default(':=');
-            $table->string('value')->default('');
+            $table->string('groupname')->unique();
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateRadcheckTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('radcheck');
+        Schema::dropIfExists('group');
     }
 }

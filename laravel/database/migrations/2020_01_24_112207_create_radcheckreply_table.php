@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRadusergroupTable extends Migration
+class CreateRadcheckreplyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class CreateRadusergroupTable extends Migration
      */
     public function up()
     {
-        Schema::create('radusergroup', function (Blueprint $table) {
+        Schema::create('radcheckreply', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('group_id');
-
+            $table->string('attribute')->default('Cleartext-Password');
+            $table->string('op')->default(':=');
+            $table->string('value')->default('');
+            $table->enum('check_reply', ['check','reply']);
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-            $table->integer('priority')->default(0);
             $table->timestamps();
         });
     }
@@ -34,6 +35,6 @@ class CreateRadusergroupTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('radusergroup');
+        Schema::dropIfExists('radcheckreply');
     }
 }

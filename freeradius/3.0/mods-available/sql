@@ -198,6 +198,11 @@ sql {
 	authcheck_table = "radcheck"
 	groupcheck_table = "radgroupcheck"
 
+	# Modified by Tej Dahal for building better table
+	radcheckreply_table = "radcheckreply"
+	groupcheckreply_table = "radgroupcheckreply"
+
+
 	# Tables containing 'reply' items
 	authreply_table = "radreply"
 	groupreply_table = "radgroupreply"
