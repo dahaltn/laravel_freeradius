@@ -24,10 +24,18 @@ class RadiusCustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $radius_users = User::orderBy('id', 'DESC')->paginate(20);
-        return view('radius.customer.index', compact('radius_users'));
+        $search_val = $request->input('search');
+        if (empty(trim($search_val))) {
+            $radius_users = User::orderBy('id', 'DESC')->paginate(30);
+        } else {
+            $radius_users = User::where('username', 'LIKE', '%' . $search_val . '%')
+                ->orderBy('id', 'DESC')->paginate(30);
+        }
+
+
+        return view('radius.customer.index', compact(['radius_users', 'search_val']));
 
     }
 
@@ -52,15 +60,17 @@ class RadiusCustomerController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate($this->validationRule());
+        $data_rad = $data;
         $data['created_by'] = !empty(Auth::user()) ? Auth::user()->id : 0;
-        $data['password'] = Hash::make($data['password']);
+        $data['password'] = Hash::make(trim($data['password']));
         $user = User::create($data);
 
-        $data['attribute'] = 'Cleartext-Password';
-        $data['op'] = ':=';
-        $data['value'] = $data['password'];
-        $data['check_reply'] = 'check';
-        $user->radcheckreply()->create($data);
+
+        $data_rad['attribute'] = 'Cleartext-Password';
+        $data_rad['op'] = ':=';
+        $data_rad['value'] = trim($data_rad['password']);
+        $data_rad['check_reply'] = 'check';
+        $user->radcheckreply()->create($data_rad);
         $user->radusergroup()->create($data);
 
         return redirect()->route('customers.index')
@@ -103,12 +113,12 @@ class RadiusCustomerController extends Controller
         $data = $request->validate($this->validationRule($customer->id));
         $user_data = $data;
         unset($user_data['group_id']);
-        $user_data['password'] = Hash::make($user_data['password']);
+        $user_data['password'] = Hash::make(trim($user_data['password']));
 
         $customer->update($user_data);
 
         $radcheck = [
-            'value' => $data['password']
+            'value' => trim($data['password'])
         ];
         $customer->radcheckreply()->update($radcheck);
 

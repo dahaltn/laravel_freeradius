@@ -18,10 +18,18 @@ class RadacctController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $radacct = Radacct::orderBy('radacctid', 'desc')->paginate(40);
-        return view('radius.radacct.index', compact('radacct'));
+        $search = $request->input('search');
+        if (empty(trim($search))) {
+            $radacct = Radacct::orderBy('acctstoptime', 'ASC')
+                ->paginate(40);
+        } else {
+            $radacct = Radacct::where('username', 'LIKE', '%' . $search . '%')
+                ->paginate(40);
+        }
+
+        return view('radius.radacct.index', compact(['radacct', 'search']));
 
 
     }
@@ -39,7 +47,7 @@ class RadacctController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -50,7 +58,7 @@ class RadacctController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Radacct  $radacct
+     * @param  \App\Radacct $radacct
      * @return \Illuminate\Http\Response
      */
     public function show(Radacct $radacct)
@@ -61,7 +69,7 @@ class RadacctController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Radacct  $radacct
+     * @param  \App\Radacct $radacct
      * @return \Illuminate\Http\Response
      */
     public function edit(Radacct $radacct)
@@ -72,8 +80,8 @@ class RadacctController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Radacct  $radacct
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Radacct $radacct
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Radacct $radacct)
@@ -84,7 +92,7 @@ class RadacctController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Radacct  $radacct
+     * @param  \App\Radacct $radacct
      * @return \Illuminate\Http\Response
      */
     public function destroy(Radacct $radacct)

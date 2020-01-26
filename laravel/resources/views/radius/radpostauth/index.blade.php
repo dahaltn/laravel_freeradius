@@ -31,7 +31,15 @@
                                     <td>{{ $postauth->id }}</td>
                                     <td>{{ $postauth->username }}</td>
                                     <td>{{ $postauth->pass }}</td>
-                                    <td>{{ $postauth->reply }}</td>
+                                    <td>
+
+                                        @if($postauth->reply == 'Access-Reject')
+                                            <span class="badge badge-danger">{{ $postauth->reply }}</span>
+                                            @else
+                                            <span class="badge badge-success">{{ $postauth->reply }}</span>
+                                            @endif
+
+                                    </td>
                                     <td>{{ $postauth->authdate }}</td>
                                 </tr>
                             @endforeach

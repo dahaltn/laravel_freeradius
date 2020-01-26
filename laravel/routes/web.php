@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('home')->with('success', 'Welcome to Dahal radius.');
 });
 
 Auth::routes();

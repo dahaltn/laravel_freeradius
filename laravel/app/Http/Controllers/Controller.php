@@ -12,11 +12,9 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function __construct()
     {
-//        $this->middleware('auth:api');
+        $this->middleware('auth');
     }
-    public function dahal(){
-        return view('dahal');
-    }
+
     public function settings(){
         return view('settings');
     }

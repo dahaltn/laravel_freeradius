@@ -16,7 +16,31 @@
                                 <p>{{ $message }}</p>
                             </div>
                         @endif
-                        <p></p>
+
+
+                        <form method="GET" action="{{ route('customers.index') }}">
+                            @csrf
+                            <div class="form-group row">
+                                <label for="search"
+                                       class="col-md-3 col-form-label text-md-right"><strong>{{ __('Search By username') }}
+                                        :</strong></label>
+                                <div class="col-md-4">
+                                    <input id="search" type="text" class="form-control"
+                                           name="search"
+                                           value="{{$search_val}}" autocomplete="search" autofocus>
+                                </div>
+                                <div class="col-md-4">
+                                    <button class="btn btn-md form-control-md btn-outline-dark" type="submit">
+                                        Search
+                                    </button>
+                                    <a href="{{route('customers.index')}}" class="btn btn-md btn-dark">
+                                        Show all
+                                    </a>
+                                </div>
+                            </div>
+
+
+                        </form>
 
                         <table class="table">
                             <thead>
@@ -54,10 +78,10 @@
                                     <td> {{ $user->mobile}}</td>
                                     <td>{{ $user->city}}</td>
                                     <td>Rs.@if(isset($user->billing->amount))
-                                            {{ $user->billing->amount}}
-                                               @else
-                                               0.00
-                                               @endif
+                                            {{ number_format((float)$user->billing->amount, 2, '.', '')}}
+                                        @else
+                                            0.00
+                                        @endif
                                     </td>
                                     <td>
                                         <form method="POST" action="{{ route('customers.destroy', $user->id) }}">

@@ -40,7 +40,7 @@
                                             :</strong></label>
                                     <div class="col-md-6">
                                         <input id="password" type="text" class="form-control form-control-sm" name="password"
-                                               value="{{ old('password') }}" required autocomplete="password" autofocus>
+                                               value="{{old('password')}}" required autocomplete="password" autofocus>
                                     </div>
                                 </div>
 
@@ -62,8 +62,6 @@
                                             </select>
                                         @endif
                                     </div>
-
-
                                 </div>
 
                             </div>
