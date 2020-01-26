@@ -5,6 +5,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
+                    <div class="card-header"><h3 class="d-inline-block">{{ __('Currently Connected customers') }}</h3>
+                    </div>
                     <div class="card-body">
 
                         @if ($message = Session::get('success'))

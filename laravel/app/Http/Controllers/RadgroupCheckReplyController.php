@@ -5,9 +5,15 @@ namespace App\Http\Controllers;
 use App\GroupName;
 use App\RadgroupCheckReply;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class RadgroupCheckReplyController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -77,7 +83,7 @@ class RadgroupCheckReplyController extends Controller
     {
         $group_name = GroupName::all();
         $attributes = $this->attributes();
-       return view('radius.radgroupcheckreply.edit', compact(['group_setting','group_name', 'attributes']));
+        return view('radius.radgroupcheckreply.edit', compact(['group_setting', 'group_name', 'attributes']));
     }
 
     /**
@@ -89,9 +95,7 @@ class RadgroupCheckReplyController extends Controller
      */
     public function update(Request $request, RadgroupCheckReply $group_setting)
     {
-        $rule = $this->validationrule();
-        $rule['groupname'] = 'required';
-
+        $rule = $this->validationrule($group_setting->group_id);
         $data = $request->validate($rule);
         $data['op'] = ':=';
         if ($data['attribute'] == 'Auth-Type') {
@@ -129,11 +133,10 @@ class RadgroupCheckReplyController extends Controller
         ];
     }
 
-    protected function validationrule()
+    protected function validationrule($id = null)
     {
-       return [
-//            'group_id' => 'required',
-            'groupname' => 'required|unique:groups',
+        return [
+            'groupname' => ['required',Rule::unique('groups')->ignore($id),'alpha_dash'],
             'attribute' => 'required',
             'value' => 'required|max:200'
         ];

@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class RadacctController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,7 @@ class RadacctController extends Controller
      */
     public function index()
     {
-        $radacct = Radacct::orderBy('radacctid', 'desc')->paginate(10);
+        $radacct = Radacct::orderBy('radacctid', 'desc')->paginate(40);
         return view('radius.radacct.index', compact('radacct'));
 
 

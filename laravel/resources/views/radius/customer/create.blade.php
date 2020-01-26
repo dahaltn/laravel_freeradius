@@ -45,25 +45,26 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="group"
+                                    <label for="group_id"
                                            class="col-md-4 col-form-label text-md-right"><strong>{{ __('Group') }}
                                             :</strong>
                                     </label>
                                     <div class="col-md-6">
                                         @if($groups)
-                                            <select name="group" id="group">
+                                            <select name="group_id" id="group_id">
+                                                <option value="">--Select Group--</option>
                                                 @foreach($groups as $group )
                                                     <option value="{{ $group->id }}"
-                                                            @if(old('group') == $group->id) selected="selected"
+                                                            @if(old('group_id') == $group->id) selected="selected"
                                                         @endif
-                                                    >{{$group->group->groupname}}</option>
+                                                    >{{$group->groupname}}</option>
                                                 @endforeach
                                             </select>
                                         @endif
                                     </div>
 
 
-                                {{--</div>--}}
+                                </div>
 
                             </div>
 

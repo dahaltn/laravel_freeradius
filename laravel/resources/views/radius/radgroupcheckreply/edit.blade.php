@@ -7,7 +7,16 @@
                 <div class="card">
                     <div class="card-header"> <h3>{{ __('Edit Group mapping') }}</h3></div>
                     <div class="card-body">
-
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <form method="POST" action="{{ route('group-setting.update', $group_setting->id) }}">
                             @csrf
                             @method('PUT')

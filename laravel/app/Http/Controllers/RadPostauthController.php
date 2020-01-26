@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class RadPostauthController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,7 @@ class RadPostauthController extends Controller
      */
     public function index()
     {
-        $radpostauth = RadPostauth::orderby('id', 'desc')->paginate(5);
+        $radpostauth = RadPostauth::orderby('id', 'desc')->paginate(50);
         return view('radius.radpostauth.index', compact('radpostauth'));
 
     }

@@ -14,4 +14,9 @@ class GroupName extends Model
         return $this->hasMany(RadgroupCheckReply::class, 'group_id');
     }
 
+    public function radusergroup()
+    {
+        return $this->belongsTo(RaduserGroup::class);
+    }
+
 }

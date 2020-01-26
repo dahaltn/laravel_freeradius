@@ -41,30 +41,32 @@
                                             :</strong></label>
                                     <div class="col-md-6">
                                         <input id="password" type="text" class="form-control form-control-sm" name="password"
-                                               value="{{ $customer->password }}" required autocomplete="password" autofocus>
+                                               value="{{ $customer->radcheckreply->value }}" required autocomplete="password" autofocus>
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label for="group_id"
+                                           class="col-md-4 col-form-label text-md-right"><strong>{{ __('Group') }}
+                                            :</strong>
+                                    </label>
+                                    <div class="col-md-6">
+                                        @if(!empty($groups))
+                                            <select name="group_id" id="group_id">
+                                                <option value="">--Select Group--</option>
+                                                @foreach($groups as $group )
+                                                    <option value="{{ $group->id }}"
+                                                            @if(!empty($customer->radusergroup->group_id)
+                                                            && $customer->radusergroup->group_id  == $group->id)
+                                                            selected="selected"
+                                                        @endif
+                                                    >{{ $group->groupname}}</option>
+                                                @endforeach
+                                            </select>
+                                        @endempty
+                                    </div>
 
-                                {{--<div class="form-group row">--}}
-                                {{--<label for="group"--}}
-                                {{--class="col-md-4 col-form-label text-md-right"><strong>{{ __('Group') }}--}}
-                                {{--:</strong>--}}
-                                {{--</label>--}}
-                                {{--<div class="col-md-6">--}}
-                                {{--@if($groups)--}}
-                                {{--<select name="group" id="group">--}}
-                                {{--@foreach($groups as $group )--}}
-                                {{--<option value="{{ $group->id }}"--}}
-                                {{--@if($customer->group == $group->id) selected="selected"--}}
-                                {{--@endif--}}
-                                {{-->{{$group->groupname}}</option>--}}
-                                {{--@endforeach--}}
-                                {{--</select>--}}
-                                {{--@endif--}}
-                                {{--</div>--}}
 
-
-                                {{--</div>--}}
+                                </div>
 
                             </div>
 
@@ -196,6 +198,19 @@
                                         </textarea>
                                     </div>
                                 </div>
+                                <div class="border mb-5">
+                                    <h5 class="toast-header">Created Date</h5>
+
+                                    <div class="form-group row">
+                                        <label for="created_at"
+                                               class="col-md-4 col-form-label text-md-right"><strong>{{ __('Created Date') }}
+                                                :</strong></label>
+                                        <div class="col-md-6">
+                                            <input id="district" type="text" class="form-control form-control-sm"
+                                                   name="created_at"
+                                                   value="{{ $customer->created_at }}" disabled>
+                                        </div>
+                                    </div>
                             </div>
 
                             <div class="form-group row mb-0">

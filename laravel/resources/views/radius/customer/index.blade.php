@@ -5,9 +5,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header"><h3 class="d-inline-block">{{ __('Radius User') }}</h3>
+                    <div class="card-header"><h3 class="d-inline-block">{{ __('Radius Customer list') }}</h3>
                         <a href="{{ route('customers.create') }}" class="btn btn-sm btn-primary float-right">Add
-                            User</a>
+                            New Customer</a>
                     </div>
                     <div class="card-body">
 
@@ -24,12 +24,12 @@
                             <tr>
                                 <th>No</th>
                                 <th>UserName</th>
-                                <th>Password</th>
+                                <th>Group</th>
                                 <th>Full Name</th>
-                                <th>Email</th>
+                                {{--<th>Email</th>--}}
                                 <th>Mobile</th>
-                                <th>Address</th>
-                                <th>Created</th>
+                                <th>City</th>
+                                <th>Amount left</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -38,20 +38,35 @@
                                 <tr>
                                     <td>{{ $user->id }}</td>
                                     <td>{{ $user->username }}</td>
-                                    <td>{{ $user->password }}</td>
-                                    <td>{{ $user->first_name }} {{$user->last_name}}</td>
-                                    <td>{{ $user->email}}</td>
+                                    <td>
+                                        @if(isset($user->radusergroup->group->groupname))
+                                            @if(strpos(strtolower($user->radusergroup->group->groupname),'disable') !== false || strpos(strtolower($user->radusergroup->group->groupname),'expired') !== false)
+                                                <span
+                                                    class="badge badge-danger">{{  $user->radusergroup->group->groupname }}</span>
+                                            @else
+                                                <span
+                                                    class="badge badge-success">{{  $user->radusergroup->group->groupname }}</span>
+                                            @endif
+                                        @endif
+                                    </td>
+                                    <td>{{ $user->fullname()}}</td>
+                                    {{--                                    <td>{{ $user->email}}</td>--}}
                                     <td> {{ $user->mobile}}</td>
-                                    <td>{{ $user->address}}</td>
-                                    <td>{{ $user->created_at }}</td>
+                                    <td>{{ $user->city}}</td>
+                                    <td>Rs.@if(isset($user->billing->amount))
+                                            {{ $user->billing->amount}}
+                                               @else
+                                               0.00
+                                               @endif
+                                    </td>
                                     <td>
                                         <form method="POST" action="{{ route('customers.destroy', $user->id) }}">
                                             @csrf
                                             @method('DELETE')
                                             <a class="btn btn-sm btn-warning"
                                                href="{{ route('customers.edit', $user->id) }}">Edit</a>
-                                            <a class="btn btn-sm btn-outline-dark"
-                                               href="{{ route('customers.show', $user->id) }}">View Detail</a>
+                                            {{--<a class="btn btn-sm btn-outline-dark"--}}
+                                            {{--                                               href="{{ route('customers.show', $user->id) }}">View Detail</a>--}}
                                             <button class="btn btn-sm btn-danger" type="submit">
                                                 Delete
                                             </button>

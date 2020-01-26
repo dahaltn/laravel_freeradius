@@ -33,11 +33,6 @@
                                     <td>{{ $postauth->pass }}</td>
                                     <td>{{ $postauth->reply }}</td>
                                     <td>{{ $postauth->authdate }}</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="{{ route('radpostauth.show',$postauth->id) }}">Show</a>
-
-
-                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>

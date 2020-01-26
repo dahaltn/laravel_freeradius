@@ -23,6 +23,5 @@ Route::resource('radacct','RadacctController');
 Route::resource('radpostauth','RadPostauthController');
 Route::get('settings','Controller@settings')->name('settings');
 Route::resource('customers','RadiusCustomerController');
-Route::resource('groups','GroupNameController');
 Route::resource('group-setting','RadgroupCheckReplyController');
-//Route::resource('groups-settings','RaduserGroupController');
+Route::resource('billing','BillingController');

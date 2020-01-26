@@ -91,36 +91,34 @@
 
                         <ul class="list-group mb-3">
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                <div>
-                                    <h6 class="my-0"><strong><a href="{{ route('customers.index') }}">Customers</a></strong></h6>
-                                </div>
+                                    <strong><a href="{{ route('customers.index') }}">Customers</a></strong>
                             </li>
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                <h6 class="my-0"><strong><a href="{{ route('nas.index') }}">Nas</a></strong></h6>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                <div>
-                                    {{--<h6 class="my-0"><strong><a href="{{ route('groups.index') }}">Group Name</a></strong></h6>--}}
-                                </div>
+                                <strong><a href="{{ route('nas.index') }}">Nas</a></strong>
                             </li>
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
                                 <div>
-                                    <h6 class="my-0"><strong><a href="{{ route('group-setting.index') }}">Group settings</a></strong></h6>
+                                    <strong><a href="{{ route('billing.index') }}">Billing setting</a></strong>
                                 </div>
                             </li>
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
                                 <div>
-                                    <h6 class="my-0"><strong><a href="{{ route('radacct.index') }}">Report</a></strong></h6>
+                                    <strong><a href="{{ route('group-setting.index') }}">Groups / Profiles</a></strong>
                                 </div>
                             </li>
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
                                 <div>
-                                    <h6 class="my-0"> <strong><a href="{{ route('radpostauth.index') }}">Connections History</a></strong></h6>
+                                    <strong><a href="{{ route('radacct.index') }}">Online Users</a></strong>
                                 </div>
                             </li>
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
                                 <div>
-                                    <h6 class="my-0"> <strong><a href="{{ route('settings') }}">Settings and configure</a></strong></h6>
+                                     <strong><a href="{{ route('radpostauth.index') }}">Connections History</a></strong>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                     <strong><a href="{{ route('settings') }}">Settings and configure</a></strong>
                                 </div>
                             </li>
                         </ul>
