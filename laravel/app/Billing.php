@@ -12,4 +12,16 @@ class Billing extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function amount_money_format(){
+        $amount = 0;
+        if(isset($this->amount)){
+            $amount = $this->amount;
+        }
+        $amount = money_format('Rs %i', $amount);
+        return $amount;
+    }
+
+
+
 }

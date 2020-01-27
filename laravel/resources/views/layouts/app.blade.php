@@ -87,18 +87,26 @@
             </div>
             <div class="card-body">
 
-
-
                         <ul class="list-group mb-3">
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <strong><a href="{{ route('customers.index') }}">Customers</a></strong>
+                                <strong><a href="{{ route('customers.index') }}">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+
+                                            Customers
+                                        </a></strong>
+
                             </li>
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
                                 <strong><a href="{{ route('nas.index') }}">Nas</a></strong>
                             </li>
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
                                 <div>
-                                    <strong><a href="{{ route('billing.index') }}">Billing setting</a></strong>
+                                    <strong><a href="{{ route('billing.index') }}">Balance transfer</a></strong>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <strong><a href="{{ route('transactions.index') }}">Balance Transfer history</a></strong>
                                 </div>
                             </li>
                             <li class="list-group-item d-flex justify-content-between lh-condensed">

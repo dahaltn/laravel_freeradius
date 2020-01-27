@@ -16,6 +16,7 @@ class Controller extends BaseController
     }
 
     public function settings(){
-        return view('settings');
+        $daily_rate = env('DAILY_RATE');
+        return view('settings', compact('daily_rate'));
     }
 }

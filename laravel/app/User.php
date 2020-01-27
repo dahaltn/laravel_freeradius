@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $table = 'users';
-    protected $fillable = ['username', 'password', 'title', 'first_name', 'last_name', 'mobile', 'phone','email', 'address', 'city', 'district', 'notes', 'created_by'];
+    protected $fillable = ['username', 'password', 'title', 'first_name', 'last_name', 'mobile', 'phone','email', 'balance_amount','address', 'city', 'district', 'notes', 'created_by'];
 
 
     /**
@@ -61,4 +61,15 @@ class User extends Authenticatable
     public function billing(){
     return $this->hasOne(Billing::class);
     }
+
+    public function amount(){
+        $amount = 0;
+        if(isset($this->billing->amount)){
+            $amount = $this->billing->amount;
+
+        }
+        $amount = money_format('Rs %i', $amount);
+        return $amount;
+    }
+
 }

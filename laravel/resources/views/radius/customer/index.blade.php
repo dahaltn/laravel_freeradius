@@ -77,12 +77,7 @@
                                     {{--                                    <td>{{ $user->email}}</td>--}}
                                     <td> {{ $user->mobile}}</td>
                                     <td>{{ $user->city}}</td>
-                                    <td>Rs.@if(isset($user->billing->amount))
-                                            {{ number_format((float)$user->billing->amount, 2, '.', '')}}
-                                        @else
-                                            0.00
-                                        @endif
-                                    </td>
+                                    <td>{{ $user->amount() }}</td>
                                     <td>
                                         <form method="POST" action="{{ route('customers.destroy', $user->id) }}">
                                             @csrf

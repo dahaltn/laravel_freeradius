@@ -8,7 +8,8 @@
                 <div class="card-header">
 
                     <h3 class="d-inline-block">{{ __('Billing and account') }}</h3>
-                    <a href="{{ route('billing.create') }}" class="btn btn-sm btn-primary float-right">Add Money to user</a>
+                    <a href="{{ route('billing.create') }}" class="btn btn-sm btn-success float-right">Transfer Balance to
+                        user</a>
 
                 </div>
                 <div class="card-body">
@@ -32,23 +33,19 @@
                             <tr>
                                 <td>{{ $b->id }}</td>
                                 <td>{{ $b->user->username }}</td>
-                                <td>Rs.{{ $b->amount }}</td>
+                                <td>{{ $b->amount_money_format()}}</td>
                                 <td>
-                                    <form method="POST" action="{{ route('billing.destroy', $b->id) }}">
-                                        @csrf
-                                        @method('DELETE')
-                                        <a class="btn btn-sm btn-warning" href="{{ route('billing.edit',$b->id) }}">Edit</a>
-                                        <button class="btn btn-sm btn-danger" type="submit">
-                                            Delete
-                                        </button>
-
-                                    </form>
+                                        <a class="btn btn-sm btn-warning"
+                                           href="{{ route('billing.edit',$b->id) }}">Move Balance</a>
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
+
                     {!! $billing->links() !!}
                 </div>
             </div>
+        </div>
+    </div>
 @endsection
