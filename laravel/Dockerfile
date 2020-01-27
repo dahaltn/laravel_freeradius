@@ -53,6 +53,9 @@ RUN chmod +x /init.sh
 # Remove the original sample index.html file
 RUN rm -rf /var/www/html/index.html
 WORKDIR /var/www/html
+RUN chown -R www-data:www-data storage
+RUN chown -R www-data:www-data bootstrap/cache
+
 # Setup composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 

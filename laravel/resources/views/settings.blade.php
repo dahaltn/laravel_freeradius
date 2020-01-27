@@ -8,7 +8,7 @@
                     <div class="card-header"> <h3>{{ __('Admin Balance transfer') }}</h3></div>
                     <div class="card-body bg-light">
                         <div class="alert alert-warning text-center"><p>Load money to your account to be able to transfer other users.</p></div>
-                        <div class="alert alert-info text-center"><p>Your current balance is: <strong>Rs {{ \Illuminate\Support\Facades\Auth::user()->billing->amount }}</strong></p></div>
+                        <div class="alert alert-info text-center"><p>Your current balance is: <strong>Rs {{ \Illuminate\Support\Facades\Auth::user()->amount() }}</strong></p></div>
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <strong>Whoops!</strong> There were some problems with your input.<br><br>
