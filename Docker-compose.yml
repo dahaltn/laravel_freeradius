@@ -1,4 +1,4 @@
-version: '3.6'
+version: '3'
 services:
   web:
     build:
@@ -55,14 +55,14 @@ services:
     # - ./mysql/mysql.conf.d/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
     
 
-  # adminer:
-  #   image: adminer:latest
-  #   ports:
-  #   - "8080:8080"
-  #   environment:
-  #     ADMINER_PLUGINS: 'tables-filter tinymce'
-  #   networks:
-  #   - lara_radius_network
+  adminer:
+    image: adminer:latest
+    ports:
+    - "8080:8080"
+    environment:
+      ADMINER_PLUGINS: 'tables-filter tinymce'
+    networks:
+    - lara_radius_network
 #  traefik:
 #    image: traefik
 #    ports:
@@ -73,5 +73,4 @@ services:
 
 networks:
   lara_radius_network:
-    external: true
 
