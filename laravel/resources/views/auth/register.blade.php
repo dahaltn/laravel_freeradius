@@ -7,7 +7,16 @@
                 <div class="card">
                     <div class="card-header"> <h3>{{ __('Register') }}</h3></div>
                     <div class="card-body">
-
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
@@ -15,9 +24,9 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text"
-                                           class="form-control form-control-sm @error('name') is-invalid @enderror" name="name"
-                                           value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    <input id="username" type="text"
+                                           class="form-control form-control-sm @error('username') is-invalid @enderror" name="username"
+                                           value="{{ old('username') }}" required autocomplete="username" autofocus>
 
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
