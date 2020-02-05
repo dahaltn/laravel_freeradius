@@ -18,9 +18,7 @@ services:
     - lara_radius_network
     volumes:
     - ./laravel:/var/www/html
-    - ./freeradius/3.0/mods-available/sql:/etc/freeradius/3.0/mods-available/sql
-    - ./freeradius/3.0/sites-available/default:/etc/freeradius/3.0/sites-available/default
-    - ./freeradius/3.0/mods-config/sql/main/mysql/queries.conf:/etc/freeradius/3.0/mods-config/sql/main/mysql/queries.conf
+    - ./freeradius/3.0:/etc/freeradius/3.0
     # command: composer install --ignore-platform-reqs
   # freeradius:
   #   # image: freeradius/freeradius-server:latest

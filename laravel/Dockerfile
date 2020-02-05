@@ -69,6 +69,7 @@ RUN mkdir -p storage
 RUN mkdir -p bootstrap/cache
 RUN chown -R www-data:www-data storage
 RUN chown -R www-data:www-data bootstrap/cache
+RUN /bin/sed -i "s/DocumentRoot\ \/var\/www\/html/DocumentRoot\ \/var\/www\/html\/public/g" /etc/apache2/sites-available/000-default.conf
 
 RUN a2enmod rewrite
 # Expose Web & radius ports
